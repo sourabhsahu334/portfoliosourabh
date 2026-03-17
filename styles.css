@@ -663,32 +663,6 @@ section {
     font-size: 1.5rem;
 }
 
-.skill-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.skill-item span {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--text-secondary);
-}
-
-.skill-bar {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.skill-progress {
-    height: 100%;
-    background: var(--primary-gradient);
-    border-radius: 10px;
-    transition: width 1s ease;
-}
-
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -702,6 +676,14 @@ section {
     border-radius: 20px;
     color: #667eea;
     font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: var(--primary-gradient);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--glow);
 }
 
 /* Contact Section */

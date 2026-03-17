@@ -20,13 +20,13 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll <= 0) {
         navbar.style.boxShadow = 'none';
     } else {
         navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -45,7 +45,7 @@ const navItems = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -53,7 +53,7 @@ window.addEventListener('scroll', () => {
             current = section.getAttribute('id');
         }
     });
-    
+
     navItems.forEach(item => {
         item.classList.remove('active');
         if (item.getAttribute('href').slice(1) === current) {
@@ -85,27 +85,6 @@ document.querySelectorAll('.about-card, .timeline-item, .project-card, .skill-ca
     observer.observe(el);
 });
 
-// Skill bar animation
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const progressBars = entry.target.querySelectorAll('.skill-progress');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.skill-category').forEach(category => {
-    skillObserver.observe(category);
-});
-
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
@@ -121,7 +100,7 @@ if (subtitle) {
     const text = subtitle.textContent;
     subtitle.textContent = '';
     let i = 0;
-    
+
     function typeWriter() {
         if (i < text.length) {
             subtitle.textContent += text.charAt(i);
@@ -129,7 +108,7 @@ if (subtitle) {
             setTimeout(typeWriter, 100);
         }
     }
-    
+
     // Start typing effect after page load
     window.addEventListener('load', () => {
         setTimeout(typeWriter, 500);
@@ -143,7 +122,7 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.pageX + 'px';
     cursor.style.top = e.pageY + 'px';
     document.body.appendChild(cursor);
-    
+
     setTimeout(() => {
         cursor.remove();
     }, 1000);
@@ -167,11 +146,11 @@ window.addEventListener('load', () => {
 
 // Add hover effect to project cards
 document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px) scale(1.02)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
