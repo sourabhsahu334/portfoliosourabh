@@ -563,6 +563,12 @@ section {
     border: 1px solid #4caf50;
 }
 
+.project-status.beta {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
 .project-link {
     color: var(--text-secondary);
     font-size: 1.2rem;
